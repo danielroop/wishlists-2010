@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <link href='http://fonts.googleapis.com/css?family=Reenie+Beanie&subset=latin' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Neuton&subset=latin' rel='stylesheet' type='text/css'>
+        <link href='css/main.css' rel='stylesheet' type='text/css'>        
+        
+        <script type="text/javascript">
+            function display_callback_wishlist(newList) {
+                $('#wishlist').wishlist('render', {
+                    'data' : newList.results
+                });
+            }
+        </script>
+        
+        <script id="itemTemplate" type="text/x-jquery-tmpl">
+            <li class='item'>
+                <span class='title'>${Title}</span>
+                <div class='imagearea'>
+                    <div class='imageframe'>
+                        <img src='${ImageUrl}'/>
+                    </div>
+                </div>
+
+                <div class="reason">
+                    ${Comment} : Brendan says he wants this because he really really likes it.
+                </div>
+
+                <div class='details'>
+                    <a href="${DetailPageURL}">Details about ${Title}</a> can be found on Amazon and it cost approximately ${Price}.
+                </div>
+            </li>
+        </script>
+    </head>
+    
+    <body>
+        
+        <ul id="wishlist">
+            <li class="item">
+                <span class="title">Trouble Board Game</span>
+
+            </li>
+                
+            
+        </ul>
+       
+        <script src="http://code.jquery.com/jquery-1.4.3.min.js" type="text/javascript"></script>
+        <script src='http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js'></script>
+        <script src='js/jquery.wishlist.js'></script>
+        <script src="https://ws.amazon.com/widgets/q?Operation=GetResults&ListId=37R19TA2GUR28&multipageStart=0&InstanceId=0&multipageCount=10&Sort=DateAdded&TemplateId=8004&ServiceVersion=20070822&MarketPlace=US"></script>
+        
+        <script type="text/javascript">
+            $().wishlist('init');
+        </script>
+    </body>
+</html>

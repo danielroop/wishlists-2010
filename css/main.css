@@ -1,0 +1,79 @@
+html {
+        background: url(http://farm3.static.flickr.com/2702/4133847463_053cc90a95_b.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+}
+
+ul#wishlist {
+	margin-left: 0;
+	padding-left: 0;
+	display: block;
+}
+
+ul#wishlist li {
+	margin-left: 0;
+	padding: 10px 15px;
+	list-style: none;
+	display: block;
+	border: 1px solid black;
+	width: 600px;
+	height: 300px;
+	margin: 20px auto;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    background-color: rgba(0,0,0,0.85);
+    color: white;
+}
+
+ul#wishlist li span.title {
+    font-family: 'Neuton', arial, serif;
+    font-size: 12pt;
+    display: block;
+}
+
+ul#wishlist li div.imagearea {
+    margin-top: 1em;
+    height: 200px;
+    width: 200px;
+    border: 3px solid rgb(60, 141, 13);
+    background-color: rgba(60, 141, 13, 0.7);
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    float: left;
+    padding: 10px
+}
+
+ul#wishlist li div.imagearea div.imageframe {
+    height: 160px;
+    width: 160px;
+    margin: 20px; 
+    background-color: white;
+}
+
+ul#wishlist li div.imagearea div.imageframe img {
+}
+
+ul#wishlist li div.details {
+    margin-top: 5px;
+    font-family: Helvetica;
+    font-size: 10pt;
+}
+
+
+ul#wishlist li div.reason {
+    font-family: 'Reenie Beanie', arial, serif;
+    font-size: 16pt;
+    margin-left: 250px;
+    margin-top: .8em;
+    height: 200px;
+    border: 3px solid rgb(226, 65, 78);
+    background: url(notepad.png);
+    color: black;
+    border-radius: 15px;
+    padding: 10px
+
+}
