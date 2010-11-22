@@ -6,14 +6,19 @@
         
         <script type="text/javascript">
             function display_callback_wishlist(newList) {
-                $('#wishlist').wishlist('render', {
+                $().wishlist('init', {
                     'data' : newList.results
                 });
+ 
+                $('#lowerthird').wishlist('render', {
+                    'template' : '#listTemplate'
+                });
+              
             }
         </script>
         
         <script id="itemTemplate" type="text/x-jquery-tmpl">
-            <li class='item'>
+            <li class='item init'>
                 <span class='title'>${Title}</span>
                 <div class='imagearea'>
                     <div class='imageframe'>
@@ -30,26 +35,49 @@
                 </div>
             </li>
         </script>
+        
+        <script id="listTemplate" type="text/x-jquery-tmpl">
+            <img src='${ThumbImageUrl}' data-wishlist-id='${ASIN}'/>
+        </script>
     </head>
     
     <body>
         
         <ul id="wishlist">
-            <li class="item">
-                <span class="title">Trouble Board Game</span>
-
-            </li>
-                
-            
         </ul>
+        
+        <div id="lowerthird">
+        </div>
        
         <script src="http://code.jquery.com/jquery-1.4.3.min.js" type="text/javascript"></script>
         <script src='http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js'></script>
         <script src='js/jquery.wishlist.js'></script>
         <script src="https://ws.amazon.com/widgets/q?Operation=GetResults&ListId=37R19TA2GUR28&multipageStart=0&InstanceId=0&multipageCount=10&Sort=DateAdded&TemplateId=8004&ServiceVersion=20070822&MarketPlace=US"></script>
-        
         <script type="text/javascript">
-            $().wishlist('init');
+            var timer;
+        
+            $('div#lowerthird img').live('click', function(event){
+                clearTimeout(timer);
+                
+                $('#wishlist').wishlist('render-item', {
+                    'template' : '#itemTemplate',
+                    'wishlist-id' : $(event.target).attr('data-wishlist-id')
+                });
+                
+                
+                $('div#lowerthird img.selected').toggleClass('selected');
+                $(event.target).toggleClass('selected');
+                
+                timer = setTimeout(function(){
+                    $('div#lowerthird img.selected').next().trigger('click');
+                }, 10000);                
+            });
+            
+            $('div#lowerthird img').first().trigger('click');
+            
+            setInterval(function(){
+               $('body').toggleClass('birthday'); 
+            }, 20000);
         </script>
     </body>
 </html>

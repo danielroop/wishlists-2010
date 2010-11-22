@@ -1,26 +1,47 @@
-html {
+body {
         background: url(http://farm3.static.flickr.com/2702/4133847463_053cc90a95_b.jpg) no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0px;
+
+}
+
+body.birthday {
+    background: url(http://farm5.static.flickr.com/4143/4824584654_37b58ac14a_b.jpg) no-repeat center center fixed;
 }
 
 ul#wishlist {
-	margin-left: 0;
-	padding-left: 0;
 	display: block;
 }
 
+
+ul#wishlist li.enter-stage-left {
+    margin-left:-300px;
+}
+
+ul#wishlist li.exit-stage-right {
+    margin-left:1000px;
+}
+
 ul#wishlist li {
-	margin-left: 0;
+    -webkit-transition: margin 1s linear;
+    transition: margin 1s linear;
+
+    margin-left:-1300px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    margin-top: -200px;
+
 	padding: 10px 15px;
 	list-style: none;
 	display: block;
 	border: 1px solid black;
 	width: 600px;
 	height: 300px;
-	margin: 20px auto;
     border-radius: 15px;
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
@@ -77,3 +98,33 @@ ul#wishlist li div.reason {
     padding: 10px
 
 }
+
+div#lowerthird {
+    position: fixed;
+    bottom: 50px;
+    height: 100px;
+    width: 100%;
+    margin: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.85);
+}
+
+div#lowerthird img {
+   margin: 12px 10px;
+   bottom: 0;
+}
+
+div#lowerthird img:hover {
+    cursor: pointer;
+    -webkit-box-shadow:0 0 100px #E2414E;
+    -moz-box-shadow: 0 0 100px #E2414E;
+    box-shadow:0 0 100px #E2414E;
+}
+
+div#lowerthird img.selected {
+    cursor: pointer;
+    -webkit-box-shadow:0 0 100px #3C8D0D;
+    -moz-box-shadow: 0 0 100px #3C8D0D;
+    box-shadow:0 0 100px #3C8D0D;
+}
+    

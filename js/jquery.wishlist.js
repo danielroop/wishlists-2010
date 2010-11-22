@@ -4,24 +4,49 @@
       'interval' : 5000
     };
     
+    var wishlist = [];
+    var wishmap = {};
+    
     var methods = {
+        'render-item' : function(options) {
+            var $this = $(this);
+            
+            return this.each(function(index, element) {
+                $this.children('.exit-stage-right').detach();
+                
+                console.log($this.children().first());
+                $this.children().first().addClass('exit-stage-right');
+
+                $(options['template']).tmpl(wishmap[options['wishlist-id']]).appendTo($this);                    
+                
+                setTimeout(
+                    function(){
+                        $this.children('.init').addClass('enter-stage-left');
+                    },
+                    0
+                );
+                
+                
+            });
+        },
+        
         render : function(options) {
             var $this = $(this);
             
             return this.each(function(index, element) {
-                var wishlist = $(options['data']);
-             
                 $this.empty();
                 $.each(wishlist, function(i, value) {
-                    
-                    $("#itemTemplate").tmpl(value).appendTo($this);                    
+                    $(options['template']).tmpl(value).appendTo($this);                    
                 })
 
             });
         },
         
         init : function(options) {
-            return this.each(function(index, element) {
+            wishlist = $(options['data']);
+            
+            $.each(wishlist, function(index, element){
+                wishmap[element.ASIN] = element;
             });
         }
     };
